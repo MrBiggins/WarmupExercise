@@ -9,12 +9,24 @@ public class JavaDaysEventPass {
     private static boolean isEveningFare = false;
     private static short passValidity = 1;
 
+    private static int travelPassId = 0;
+
     public static void main(String[] args) {
         try {
             System.out.println("Hello TSI Students!");
-
+            //Exercise 4
             showMessageAboutFareSchedule();
+            //Exercise 5
             checkPassValidity();
+            //Exercise 6
+            checkDiscount();
+
+            //Exercise 7
+            travelPassIdGeneration();
+
+
+            //Exercise 8
+            arraysDeclaration();
 
             int childrenEventCount = 5;
             int adultsEventCount = 10;
@@ -43,9 +55,15 @@ public class JavaDaysEventPass {
         if (isEveningFare) {
             System.out.println("Evening pass hours are from 5 PM -\n" +
                     "9 PM, additional evening charge applicable for each pass");
+
+            System.out.println("Use of an evening pass incurs an additional charge.");
+
         } else {
             System.out.println("Regular\n" +
                     "pass hours are from 9 AM - 5 PM, no additional charge applicable");
+
+            System.out.println("No additional charge for use of a regular\n" +
+                    "pass.");
         }
     }
 
@@ -75,6 +93,7 @@ public class JavaDaysEventPass {
 
             System.out.println("Use of an evening\n" +
                     "pass incurs additional charge for each ticket.");
+
             return;
 
         } else if (isEveningFare && passValidity == 3 || passValidity == 5) {
@@ -90,4 +109,65 @@ public class JavaDaysEventPass {
         }
         System.out.println("Regular pass offers discount based on pass duration.");
     }
+
+    public static void checkDiscount() {
+
+        if (passValidity == 1) {
+            System.out.println("No discount on 1 day pass");
+            return;
+        }
+        if (passValidity == 3) {
+            System.out.println("3 day pass offers 15% discount");
+            return;
+        }
+
+        if (passValidity == 5) {
+            System.out.println("5 day pass offers 25% discount");
+            return;
+        }
+        System.out.println("'Please choose only 1, 3\n" +
+                "or 5 for valid pass duration.");
+    }
+
+    public static void travelPassIdGeneration() {
+        int numberOfticket = 6;
+        for (int i = 0; i < numberOfticket; i++) {
+            travelPassId = i;
+        }
+
+        System.out.println(String.format("Travel pass id is: %1s", travelPassId));
+
+        int tempIndex = 0;
+        while (tempIndex < 5) {
+            travelPassId++;
+            tempIndex++;
+        }
+
+        System.out.println(String.format("Travel pass id is: %1s", travelPassId));
+    }
+
+    public static void arraysDeclaration() {
+
+        String forLoopValuesString = "";
+        int[] travePassIdSeq = new int[5];
+        for (int i = 0; i < 5; i++) {
+            travePassIdSeq[i] = i;
+            forLoopValuesString += i;
+
+        }
+        System.out.println(String.format("This is array values from for loop: %s", forLoopValuesString));
+
+        String whileLoopValuesString = "";
+        int tempIndex = 0;
+        while (tempIndex < 5) {
+            travePassIdSeq[tempIndex] = tempIndex;
+            whileLoopValuesString += tempIndex;
+            tempIndex++;
+
+        }
+        System.out.println(String.format("This is array values from while loop: %s", whileLoopValuesString));
+
+    }
+
+
 }

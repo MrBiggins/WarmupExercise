@@ -30,6 +30,28 @@ public class Practice_1_PART2 {
 //Exercise 13
         getMarathonNames();
         System.out.println("smallest item: " + smallestItem + "bigger item: " + biggestItem + "mean item: " + meanItem);
+//Exercise 14
+
+        int[][] multi = new int[][]{
+                { 10, 12, 43, 11, 22},
+                { 20, 45, 56, 1, 33},
+                { 30, 67, 32, 14, 44},
+                { 40, 12, 87, 14, 55},
+                { 50, 86, 66, 13, 66},
+                { 60, 53, 44, 12, 11},
+        };
+
+        for (int i=0;i<multi.length; i++){
+            int[] arr = multi[i];
+            int mean = getMean(arr);
+            System.out.println("Mean of "+i+" row: "+mean);
+
+            System.out.println("values of "+i+" array: ");
+            for (int j=0;j<arr.length;j++){
+                System.out.println(arr[j]);
+            }
+        }
+
     }
 
     //recursion
@@ -73,6 +95,17 @@ public class Practice_1_PART2 {
 
     public static double getMean(double[] arr) {
         double sum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            sum = sum + arr[i];
+        }
+        return sum / arr.length;
+
+    }
+
+
+    public static int getMean(int[] arr) {
+        int sum = 0;
 
         for (int i = 0; i < arr.length; i++) {
             sum = sum + arr[i];
